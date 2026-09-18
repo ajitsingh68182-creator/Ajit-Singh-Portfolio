@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Portfolio of Ajit Kumar Singh — UI/UX Designer, Product Designer & Visual Designer creating clean, intuitive, and user-centered digital experiences.">
+  <meta name="keywords" content="Ajit Kumar Singh, UI UX Designer, Product Designer, Visual Designer, Portfolio, Figma, Design System, Interaction Design">
+  <meta name="author" content="Ajit Kumar Singh">
+  <meta name="theme-color" content="#06050a">
+
+  <title>Ajit Kumar Singh — UI/UX Designer · Product Designer · Visual Designer</title>
+
+  <!-- Google Fonts: Syne, Space Grotesk, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+  <!-- Background Music: GTA 6 Official Main Theme (Volume 70%) -->
+  <audio id="bgMusic" src="assets/GTA_6_-_Official_Main_Theme_Music(256k).mp3" loop preload="auto"></audio>
+
+  <!-- Background Grain & Grid -->
+  <div class="film-grain" aria-hidden="true"></div>
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Custom Cursor (Desktop Only) -->
+  <div class="custom-cursor" id="customCursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-label" id="cursorLabel">VIEW</div>
+  </div>
+
+  <!-- LOADING SCREEN -->
+  <aside id="loader" class="loader" aria-label="Loading portfolio">
+    <div class="loader-backdrop"></div>
+    <div class="loader-content">
+      <div class="loader-hud-top">
+        <span class="hud-mono">SYS.INIT // PORTFOLIO_2026</span>
+        <span class="hud-mono">DEORIA · UTTAR PRADESH</span>
+      </div>
+      <div class="loader-branding">
+        <span class="loader-tag">PORTFOLIO EXPERIENCE</span>
+        <h1 class="loader-title">AJIT<br><span class="gradient-text">KUMAR SINGH</span></h1>
+        <p class="loader-roles">UI/UX DESIGNER · PRODUCT DESIGNER · VISUAL DESIGNER</p>
+      </div>
+      <div class="loader-progress-track">
+        <div class="loader-progress-bar" id="loaderBar"></div>
+      </div>
+      <div class="loader-hud-bottom">
+        <span class="hud-status"><span class="pulse-dot"></span> INITIALIZING INTERFACE...</span>
+        <span class="loader-counter" id="loaderPct">00%</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- FLOATING NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a class="brand-badge" href="#home" aria-label="Ajit Kumar Singh - Back to top">
+        <span class="brand-monogram">AKS<span class="brand-dot">.</span></span>
+        <span class="brand-role">UI/UX</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+        <a class="nav-link active" href="#home" data-section="home">HOME</a>
+        <a class="nav-link" href="#about" data-section="about">ABOUT</a>
+        <a class="nav-link" href="#work" data-section="work">WORK</a>
+        <a class="nav-link" href="#process" data-section="process">PROCESS</a>
+        <a class="nav-link" href="#tools" data-section="tools">TOOLS</a>
+        <a class="nav-link" href="#education" data-section="education">EDUCATION</a>
+        <a class="nav-link" href="#resume" data-section="resume">RESUME</a>
+        <a class="nav-link" href="#contact" data-section="contact">CONTACT</a>
+      </nav>
+
+      <!-- Right Action & Audio Controls -->
+      <div class="navbar-actions">
+        <button class="audio-toggle muted" id="audioToggle" aria-label="Toggle GTA 6 Main Theme Soundtrack" title="GTA 6 Official Main Theme (Volume 70%)">
+          <div class="audio-wave-bars" aria-hidden="true">
+            <span class="bar b1"></span>
+            <span class="bar b2"></span>
+            <span class="bar b3"></span>
+            <span class="bar b4"></span>
+          </div>
+          <svg class="icon-sound-on" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          <svg class="icon-sound-off" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        </button>
+
+        <a class="nav-cta-btn" href="#contact">LET'S TALK</a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="mobile-drawer-content">
+      <div class="mobile-hud">
+        <span class="hud-mono">AKS // NAVIGATION</span>
+        <span class="hud-mono">STATUS: AVAILABLE</span>
+      </div>
+      <nav class="mobile-links">
+        <a class="mobile-link" href="#home">01 <span>HOME</span></a>
+        <a class="mobile-link" href="#about">02 <span>ABOUT</span></a>
+        <a class="mobile-link" href="#work">03 <span>SELECTED WORK</span></a>
+        <a class="mobile-link" href="#process">04 <span>UX PROCESS</span></a>
+        <a class="mobile-link" href="#tools">05 <span>DESIGN TOOLS</span></a>
+        <a class="mobile-link" href="#education">06 <span>EDUCATION</span></a>
+        <a class="mobile-link" href="#resume">07 <span>THE RESUME</span></a>
+        <a class="mobile-link" href="#contact">08 <span>CONTACT</span></a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a class="pill-btn mobile-cta" href="assets/Ajit-Kumar-Singh-Resume.pdf" target="_blank">VIEW RESUME PDF ↗</a>
+        <p class="mobile-contact-info">ajit38323@gmail.com · +91 7379234283</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ========================================================
+         HERO SECTION: 5-STAGE SCROLLABLE CINEMATIC HERO
+         ======================================================== -->
+    <section id="home" class="hero-scroll-track" aria-label="Cinematic introduction">
+      <div class="hero-sticky-stage">
+        <!-- Hero Background Video -->
+        <div class="hero-media-wrapper">
+          <video class="hero-video" id="heroVideo" src="assets/hero.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <div class="hero-tint-overlay"></div>
+          <div class="hero-vignette"></div>
+          <div class="hero-grid-lines"></div>
+        </div>
+
+        <!-- HUD Telemetry Elements -->
+        <div class="hero-hud-header">
+          <div class="hud-badge"><span class="pulse-dot"></span> DEORIA, UP · 26.5049° N, 83.7780° E</div>
+          <div class="hud-badge">EXPERIENCE // CINEMATIC UI/UX</div>
+        </div>
+
+        <!-- Scroll Story Stages (Swapped smoothly as user scrolls) -->
+        <div class="hero-narrative-container">
+          
+          <!-- STAGE 01 -->
+          <div class="story-stage active" id="heroStage1" data-stage="1">
+            <div class="stage-tag">STAGE 01 // IDENTITY</div>
+            <h1 class="hero-title">
+              <span class="block-span">AJIT</span>
+              <span class="block-span gradient-text">KUMAR</span>
+              <span class="block-span">SINGH</span>
+            </h1>
+            <p class="hero-designation">UI UX DESIGNER · PRODUCT DESIGNER · VISUAL DESIGNER</p>
+            <div class="hero-action-row">
+              <a class="hero-primary-btn" href="#work">EXPLORE MY WORK <span class="btn-arrow">↓</span></a>
+              <a class="hero-secondary-btn" href="#about">WHO IS AJIT? <span>→</span></a>
+            </div>
+          </div>
+
+          <!-- STAGE 02 -->
+          <div class="story-stage" id="heroStage2" data-stage="2">
+            <div class="stage-tag">STAGE 02 // PHILOSOPHY</div>
+            <h2 class="hero-title">
+              <span class="block-span">I DESIGN</span>
+              <span class="block-span gradient-text">DIGITAL</span>
+              <span class="block-span">EXPERIENCES.</span>
+            </h2>
+            <p class="hero-description">Where clean aesthetics meet intentional human behavior. Building interfaces that feel natural, fluid, and memorable.</p>
+          </div>
+
+          <!-- STAGE 03 -->
+          <div class="story-stage" id="heroStage3" data-stage="3">
+            <div class="stage-tag">STAGE 03 // USER-FIRST EMPATHY</div>
+            <h2 class="hero-title">
+              <span class="block-span">I THINK</span>
+              <span class="block-span">FROM THE</span>
+              <span class="block-span gradient-text">USER'S PERSPECTIVE.</span>
+            </h2>
+            <p class="hero-description">Rooted in user research, deep empathy, wireframing, and systematic usability testing to uncover real friction points.</p>
+          </div>
+
+          <!-- STAGE 04 -->
+          <div class="story-stage" id="heroStage4" data-stage="4">
+            <div class="stage-tag">STAGE 04 // PROBLEM SOLVING</div>
+            <h2 class="hero-title">
+              <span class="block-span">I TURN</span>
+              <span class="block-span gradient-text">PROBLEMS</span>
+              <span class="block-span">INTO SIMPLE</span>
+              <span class="block-span">EXPERIENCES.</span>
+            </h2>
+            <p class="hero-description">Eliminating unnecessary complexity to deliver seamless user journeys, high clarity, and purposeful digital products.</p>
+          </div>
+
+          <!-- STAGE 05 -->
+          <div class="story-stage" id="heroStage5" data-stage="5">
+            <div class="stage-tag">STAGE 05 // PORTFOLIO SHOWCASE</div>
+            <h2 class="hero-title">
+              <span class="block-span">EXPLORE</span>
+              <span class="block-span gradient-text">MY WORK</span>
+              <span class="block-span">↓</span>
+            </h2>
+            <p class="hero-description">Four selected product design case studies across Food, Fintech, SaaS, and Spatial E-Commerce.</p>
+            <div class="hero-action-row">
+              <a class="hero-primary-btn" href="#work">SELECT A PROJECT <span>↓</span></a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- HUD Footer & Stage Tracker -->
+        <div class="hero-hud-footer">
+          <div class="stage-indicator-pill">
+            <span class="indicator-label">STAGE</span>
+            <span class="indicator-current" id="stageNumber">01</span>
+            <span class="indicator-divider">/</span>
+            <span class="indicator-total">05</span>
+          </div>
+
+          <div class="scroll-scrub-bar">
+            <div class="scroll-scrub-fill" id="heroProgressFill"></div>
+          </div>
+
+          <div class="scroll-prompt">
+            <span class="scroll-prompt-text">SCROLL TO ADVANCE</span>
+            <span class="scroll-icon-wheel"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         ABOUT SECTION: WHO IS AJIT? + RESUME SKILLS CLUSTER
+         ======================================================== -->
+    <section id="about" class="section about-section" aria-labelledby="aboutHeading">
+      <div class="section-container">
+        
+        <div class="section-badge-header reveal">
+          <span class="section-index">02</span>
+          <span class="section-tag">ABOUT / PROFILE</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="about-cinematic-grid">
+          <!-- Left: High-Res Stylized Portrait -->
+          <div class="portrait-column reveal">
+            <div class="portrait-card">
+              <div class="portrait-ambient-glow"></div>
+              <div class="portrait-frame">
+                <img class="portrait-image" src="assets/profile.png" alt="Stylized portrait of Ajit Kumar Singh, UI/UX Designer" loading="lazy">
+              </div>
+              <div class="portrait-hud-overlay">
+                <div class="hud-row">
+                  <span class="hud-mono">ID // AJIT KUMAR SINGH</span>
+                  <span class="hud-mono status-active"><span class="pulse-dot"></span> ACTIVE</span>
+                </div>
+                <div class="portrait-titles">
+                  <span class="role-pill">UI UX DESIGNER</span>
+                  <span class="role-pill">PRODUCT DESIGNER</span>
+                  <span class="role-pill">VISUAL DESIGNER</span>
+                </div>
+                <div class="portrait-location">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Deoria, Uttar Pradesh, India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Narrative Copy & Verified Resume Details -->
+          <div class="about-narrative-column reveal">
+            <div class="about-eyebrow">CREATIVE PERSPECTIVE</div>
+            <h2 class="about-title" id="aboutHeading">
+              WHO IS <span class="gradient-text">AJIT?</span>
+            </h2>
+
+            <div class="about-roles-banner">
+              <span class="role-badge">UI UX DESIGNER</span>
+              <span class="role-sep">·</span>
+              <span class="role-badge">PRODUCT DESIGNER</span>
+              <span class="role-sep">·</span>
+              <span class="role-badge">VISUAL DESIGNER</span>
+            </div>
+
+            <!-- Authentic Resume Summary (Verbatim) -->
+            <div class="about-resume-summary">
+              <p class="lead-quote">
+                “Aspiring UI/UX Designer with a strong passion for creating clean, intuitive, and user-friendly digital experiences.”
+              </p>
+              <p class="body-text">
+                Skilled in user-centered design, wireframing, prototyping, visual design, and design thinking. Eager to apply creative problem-solving and growing design skills to real-world projects while continuously learning and developing as a professional designer.
+              </p>
+            </div>
+
+            <div class="about-actions">
+              <a class="primary-btn" href="#resume">
+                <span>VIEW RESUME</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a class="ghost-btn" href="#work">
+                <span>SEE PROJECTS</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </a>
+            </div>
+
+            <!-- Core Competencies System (from Resume) -->
+            <div class="skills-cluster-box">
+              <div class="skills-cluster-header">
+                <span class="hud-mono">CORE COMPETENCIES // RESUME VERIFIED</span>
+                <span class="skills-count">9 DISCIPLINES</span>
+              </div>
+
+              <div class="competencies-grid">
+                <div class="competency-card" data-skill="research">
+                  <div class="comp-index">01</div>
+                  <div class="comp-info">
+                    <h4>USER RESEARCH</h4>
+                    <p>Understanding user motivations, behaviors & friction points</p>
+                  </div>
+                </div>
+
+                <div class="competency-card" data-skill="strategy">
+                  <div class="comp-index">02</div>
+                  <div class="comp-info">
+                    <h4>UX STRATEGY</h4>
+                    <p>Aligning product thinking, usability & user journeys</p>
+                  </div>
+                </div>
+
+                <div class="competency-card" data-skill="interaction">
+                  <div class="comp-index">03</div>
+                  <div class="comp-info">
+                    <h4>INTERACTION DESIGN</h4>
+                    <p>Crafting intentional, clear & responsive interactions</p>
+                  </div>
+                </div>
+
+                <div class="competency-card" data-skill="ia">
+                  <div class="comp-index">04</div>
+                  <div class="comp-info">
+                    <h4>INFORMATION ARCHITECTURE</h4>
+                    <p>Structuring intuitive navigation & content hierarchy</p>
+                  </div>
+                </div>
+
+                <div class="competency-card" data-skill="wireframing">
+                  <div class="comp-index">05</div>
+                  <div class="comp-info">
+                    <h4>WIREFRAMING</h4>
+                    <p>Translating user requirements into clear structural blueprints</p>
+                  </div>
+                </div>
+
+                <div class="competency-card" data-skill="prototyping">
+                  <div class="comp-index">06</div>
+                  <div class="comp-info">
+                    <h4>PROTOTYPING</h4>
+                    <p>Building interactive click-through flows for validation</p>
+                  </div>
+                </div>
+
+                <div class="competency-card" data-skill="testing">
+                  <div class="comp-index">07</div>
+                  <div class="comp-info">
+                    <h4>USABILITY TESTING</h4>
+                    <p>Evaluating design flows through real user feedback</p>
+                  </div>
+                </div>
+
+                <div class="competency-card" data-skill="product">
+                  <div class="comp-index">08</div>
+                  <div class="comp-info">
+                    <h4>PRODUCT THINKING</h4>
+                    <p>Solving the right problems with scalable design solutions</p>
+                  </div>
+                </div>
+
+                <div class="competency-card" data-skill="cro">
+                  <div class="comp-index">09</div>
+                  <div class="comp-info">
+                    <h4>CONVERSION RATE OPTIMISATION</h4>
+                    <p>Removing drop-off friction across key user flows</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         WORK / SELECTED PROJECTS SECTION
+         ======================================================== -->
+    <section id="work" class="section work-section" aria-labelledby="workHeading">
+      <div class="section-container">
+
+        <div class="section-badge-header reveal">
+          <span class="section-index">03</span>
+          <span class="section-tag">PORTFOLIO / CASE STUDIES</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="work-section-intro reveal">
+          <div class="work-title-wrap">
+            <span class="eyebrow-accent">SELECT A PROJECT</span>
+            <h2 class="section-display-title" id="workHeading">
+              SELECTED <span class="gradient-text">EXPERIENCES.</span>
+            </h2>
+          </div>
+          <p class="work-description">
+            Four detailed product case studies across culinary discovery, modern fintech, business intelligence SaaS, and spatial e-commerce.
+          </p>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="projects-stack">
+
+          <!-- PROJECT 01: SAVOR -->
+          <article class="project-cinematic-card card-savor reveal" data-project="savor" tabindex="0" role="button" aria-label="Open case study for Project 01 Savor">
+            <div class="card-glow-bg"></div>
+            <div class="project-card-grid">
+              <div class="project-card-meta">
+                <div class="project-header-row">
+                  <span class="project-num">PROJECT 01</span>
+                  <span class="project-category-badge">RECIPE DISCOVERY APP</span>
+                </div>
+                <h3 class="project-title">SAVOR</h3>
+                <p class="project-tagline">FRIDGE-FIRST MEAL DISCOVERY</p>
+                <p class="project-brief">
+                  Traditional recipe apps rely on keyword searches and manual ingredient entry, creating friction between the ingredients users already have and deciding what to cook. Savor solves this with a “fridge-first” meal discovery experience.
+                </p>
+                <div class="project-chips">
+                  <span class="chip">Mobile App</span>
+                  <span class="chip">Ingredient Scanner</span>
+                  <span class="chip">Zero Waste</span>
+                  <span class="chip">Recipe Generator</span>
+                </div>
+                <div class="project-cta-row">
+                  <button class="case-study-trigger" type="button">
+                    <span>VIEW CASE STUDY</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="project-card-visual">
+                <div class="visual-aspect-wrapper">
+                  <img src="assets/savor.png" alt="Savor - Recipe Discovery App Case Study Screens" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 02: PAYSPHERE -->
+          <article class="project-cinematic-card card-paysphere reveal" data-project="paysphere" tabindex="0" role="button" aria-label="Open case study for Project 02 PaySphere">
+            <div class="card-glow-bg"></div>
+            <div class="project-card-grid">
+              <div class="project-card-meta">
+                <div class="project-header-row">
+                  <span class="project-num">PROJECT 02</span>
+                  <span class="project-category-badge">PAYMENT APP / FINTECH</span>
+                </div>
+                <h3 class="project-title">PAYSPHERE</h3>
+                <p class="project-tagline">ONE WORLD. ONE PAYMENT.</p>
+                <p class="project-brief">
+                  An all-in-one digital wallet and Unified Payments Interface (UPI) fintech platform built around trust, speed, and cross-platform accessibility. It streamlines daily financial obligations into a clean, modern interface.
+                </p>
+                <div class="project-chips">
+                  <span class="chip">Fintech</span>
+                  <span class="chip">Digital Wallet</span>
+                  <span class="chip">UPI Payments</span>
+                  <span class="chip">Security UX</span>
+                </div>
+                <div class="project-cta-row">
+                  <button class="case-study-trigger" type="button">
+                    <span>VIEW CASE STUDY</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="project-card-visual">
+                <div class="visual-aspect-wrapper">
+                  <img src="assets/paysphere.png" alt="PaySphere - Payment App Case Study Screens" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 03: SYNERGY FLOW -->
+          <article class="project-cinematic-card card-synergy reveal" data-project="synergy" tabindex="0" role="button" aria-label="Open case study for Project 03 Synergy Flow">
+            <div class="card-glow-bg"></div>
+            <div class="project-card-grid">
+              <div class="project-card-meta">
+                <div class="project-header-row">
+                  <span class="project-num">PROJECT 03</span>
+                  <span class="project-category-badge">SAAS / DASHBOARD</span>
+                </div>
+                <h3 class="project-title">SYNERGY FLOW</h3>
+                <p class="project-tagline">UNIFY YOUR BUSINESS. ACCELERATE YOUR GROWTH.</p>
+                <p class="project-brief">
+                  An enterprise-grade SaaS operations and business intelligence platform built to connect team collaboration, automated workflows, and executive analytics into a single command center.
+                </p>
+                <div class="project-chips">
+                  <span class="chip">B2B SaaS</span>
+                  <span class="chip">Executive Dashboard</span>
+                  <span class="chip">Data Visualization</span>
+                  <span class="chip">Team Workflows</span>
+                </div>
+                <div class="project-cta-row">
+                  <button class="case-study-trigger" type="button">
+                    <span>VIEW CASE STUDY</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="project-card-visual">
+                <div class="visual-aspect-wrapper">
+                  <img src="assets/synergy-flow.png" alt="Synergy Flow - SaaS Dashboard Case Study Screens" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 04: DWELL -->
+          <article class="project-cinematic-card card-dwell reveal" data-project="dwell" tabindex="0" role="button" aria-label="Open case study for Project 04 Dwell">
+            <div class="card-glow-bg"></div>
+            <div class="project-card-grid">
+              <div class="project-card-meta">
+                <div class="project-header-row">
+                  <span class="project-num">PROJECT 04</span>
+                  <span class="project-category-badge">FURNITURE E-COMMERCE</span>
+                </div>
+                <h3 class="project-title">DWELL</h3>
+                <p class="project-tagline">DWELL. CURE. UNWIND. LIVING SPACES REDEFINED.</p>
+                <p class="project-brief">
+                  A contemporary direct-to-consumer (D2C) furniture brand and e-commerce platform that transforms traditional furniture shopping from static catalog browsing into an interactive, spatial interior design experience.
+                </p>
+                <div class="project-chips">
+                  <span class="chip">E-Commerce</span>
+                  <span class="chip">AR Spatial View</span>
+                  <span class="chip">Curated Rooms</span>
+                  <span class="chip">Conversion Design</span>
+                </div>
+                <div class="project-cta-row">
+                  <button class="case-study-trigger" type="button">
+                    <span>VIEW CASE STUDY</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="project-card-visual">
+                <div class="visual-aspect-wrapper">
+                  <img src="assets/dwell.png" alt="Dwell - Furniture E-Commerce Case Study Screens" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         UX PROCESS SECTION: 9-STEP INTERACTIVE ROADMAP
+         ======================================================== -->
+    <section id="process" class="section process-section" aria-labelledby="processHeading">
+      <div class="section-container">
+
+        <div class="section-badge-header reveal">
+          <span class="section-index">04</span>
+          <span class="section-tag">METHODOLOGY</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="process-header reveal">
+          <span class="eyebrow-accent">MY DESIGN PROCESS</span>
+          <h2 class="section-display-title" id="processHeading">
+            FROM PROBLEM TO <span class="gradient-text">EXPERIENCE.</span>
+          </h2>
+          <p class="process-sub">A structured, user-centered framework designed to transform ambiguous product needs into verified, intuitive digital interfaces.</p>
+        </div>
+
+        <!-- 9 Interactive Process Steps -->
+        <div class="process-steps-list">
+
+          <div class="process-step-item reveal" data-step="1">
+            <div class="step-num">01</div>
+            <div class="step-core">
+              <h3 class="step-name">DISCOVER</h3>
+              <p class="step-desc">Understand the product context, target domain, and strategic vision.</p>
+            </div>
+            <div class="step-details">
+              <span class="step-output-tag">Context Gathering · Problem Framing</span>
+            </div>
+          </div>
+
+          <div class="process-step-item reveal" data-step="2">
+            <div class="step-num">02</div>
+            <div class="step-core">
+              <h3 class="step-name">RESEARCH</h3>
+              <p class="step-desc">Investigate user needs, daily habits, friction points, and competitive solutions.</p>
+            </div>
+            <div class="step-details">
+              <span class="step-output-tag">User Empathy · Mental Models</span>
+            </div>
+          </div>
+
+          <div class="process-step-item reveal" data-step="3">
+            <div class="step-num">03</div>
+            <div class="step-core">
+              <h3 class="step-name">DEFINE</h3>
+              <p class="step-desc">Pinpoint the core problem, establish user personas, and frame clear design objectives.</p>
+            </div>
+            <div class="step-details">
+              <span class="step-output-tag">Problem Statement · Success Metrics</span>
+            </div>
+          </div>
+
+          <div class="process-step-item reveal" data-step="4">
+            <div class="step-num">04</div>
+            <div class="step-core">
+              <h3 class="step-name">IDEATE</h3>
+              <p class="step-desc">Explore divergent concepts, brainstorm user journeys, and establish information architecture.</p>
+            </div>
+            <div class="step-details">
+              <span class="step-output-tag">Feature Prioritization · User Flows</span>
+            </div>
+          </div>
+
+          <div class="process-step-item reveal" data-step="5">
+            <div class="step-num">05</div>
+            <div class="step-core">
+              <h3 class="step-name">WIREFRAME</h3>
+              <p class="step-desc">Create low-fidelity structural layouts to map screen hierarchy and content relationships.</p>
+            </div>
+            <div class="step-details">
+              <span class="step-output-tag">Layout Blueprints · Navigation Paths</span>
+            </div>
+          </div>
+
+          <div class="process-step-item reveal" data-step="6">
+            <div class="step-num">06</div>
+            <div class="step-core">
+              <h3 class="step-name">DESIGN</h3>
+              <p class="step-desc">Craft modern high-fidelity visual interfaces with consistent typography and color systems.</p>
+            </div>
+            <div class="step-details">
+              <span class="step-output-tag">Design Systems · Visual Hierarchy</span>
+            </div>
+          </div>
+
+          <div class="process-step-item reveal" data-step="7">
+            <div class="step-num">07</div>
+            <div class="step-core">
+              <h3 class="step-name">PROTOTYPE</h3>
+              <p class="step-desc">Build interactive, click-through prototypes that bring screen flows and micro-interactions to life.</p>
+            </div>
+            <div class="step-details">
+              <span class="step-output-tag">Interactive Flows · Micro-Interactions</span>
+            </div>
+          </div>
+
+          <div class="process-step-item reveal" data-step="8">
+            <div class="step-num">08</div>
+            <div class="step-core">
+              <h3 class="step-name">TEST</h3>
+              <p class="step-desc">Evaluate the prototype with real tasks to uncover cognitive load, confusion, or navigation snags.</p>
+            </div>
+            <div class="step-details">
+              <span class="step-output-tag">Usability Evaluation · Task Testing</span>
+            </div>
+          </div>
+
+          <div class="process-step-item reveal" data-step="9">
+            <div class="step-num">09</div>
+            <div class="step-core">
+              <h3 class="step-name">ITERATE</h3>
+              <p class="step-desc">Refine layouts, tighten microcopy, and optimize interaction details based on test findings.</p>
+            </div>
+            <div class="step-details">
+              <span class="step-output-tag">Continuous Polish · Production Ready</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TOOLS SECTION: VERIFIED TOOLS FROM RESUME
+         ======================================================== -->
+    <section id="tools" class="section tools-section" aria-labelledby="toolsHeading">
+      <div class="section-container">
+
+        <div class="section-badge-header reveal">
+          <span class="section-index">05</span>
+          <span class="section-tag">DESIGN TOOLKIT</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="tools-intro reveal">
+          <div class="tools-header-content">
+            <span class="eyebrow-accent">PROFESSIONAL SOFTWARE</span>
+            <h2 class="section-display-title" id="toolsHeading">
+              DESIGN <span class="gradient-text">TOOLKIT.</span>
+            </h2>
+          </div>
+          <p class="tools-sub">The software and platforms I use daily to research, design, prototype, animate, and build interactive digital products.</p>
+        </div>
+
+        <!-- Infinite Tool Marquee -->
+        <div class="tool-marquee-container" aria-hidden="true">
+          <div class="tool-marquee-track">
+            <span>FIGMA</span>
+            <span class="marquee-bullet">✦</span>
+            <span>ADOBE XD</span>
+            <span class="marquee-bullet">✦</span>
+            <span>FRAMER</span>
+            <span class="marquee-bullet">✦</span>
+            <span>ADOBE PHOTOSHOP</span>
+            <span class="marquee-bullet">✦</span>
+            <span>ADOBE ILLUSTRATOR</span>
+            <span class="marquee-bullet">✦</span>
+            <span>AFTER EFFECTS</span>
+            <span class="marquee-bullet">✦</span>
+            <span>PREMIERE PRO</span>
+            <span class="marquee-bullet">✦</span>
+            <span>ADOBE INDESIGN</span>
+            <span class="marquee-bullet">✦</span>
+            <span>HTML & CSS</span>
+            <span class="marquee-bullet">✦</span>
+            <span>BOOTSTRAP</span>
+            <span class="marquee-bullet">✦</span>
+            <span>CHATGPT / CLAUDE</span>
+            <span class="marquee-bullet">✦</span>
+            <!-- Duplicate for seamless loop -->
+            <span>FIGMA</span>
+            <span class="marquee-bullet">✦</span>
+            <span>ADOBE XD</span>
+            <span class="marquee-bullet">✦</span>
+            <span>FRAMER</span>
+            <span class="marquee-bullet">✦</span>
+            <span>ADOBE PHOTOSHOP</span>
+            <span class="marquee-bullet">✦</span>
+            <span>ADOBE ILLUSTRATOR</span>
+            <span class="marquee-bullet">✦</span>
+            <span>AFTER EFFECTS</span>
+            <span class="marquee-bullet">✦</span>
+            <span>PREMIERE PRO</span>
+            <span class="marquee-bullet">✦</span>
+            <span>ADOBE INDESIGN</span>
+            <span class="marquee-bullet">✦</span>
+            <span>HTML & CSS</span>
+            <span class="marquee-bullet">✦</span>
+            <span>BOOTSTRAP</span>
+            <span class="marquee-bullet">✦</span>
+            <span>CHATGPT / CLAUDE</span>
+            <span class="marquee-bullet">✦</span>
+          </div>
+        </div>
+
+        <!-- Categorized Tools Grid (No fake percentages) -->
+        <div class="tools-grid reveal">
+
+          <div class="tool-category-card">
+            <div class="tool-cat-header">
+              <span class="tool-cat-icon">✦</span>
+              <h3>UI/UX & PROTOTYPING</h3>
+            </div>
+            <ul class="tool-tags-list">
+              <li><strong>Figma</strong> <span>Design Systems, Auto-Layout & Interactive Prototyping</span></li>
+              <li><strong>Adobe XD</strong> <span>Wireframing & Responsive Components</span></li>
+              <li><strong>Framer</strong> <span>Interactive Web Canvas & Spatial Motion</span></li>
+            </ul>
+          </div>
+
+          <div class="tool-category-card">
+            <div class="tool-cat-header">
+              <span class="tool-cat-icon">✦</span>
+              <h3>VISUAL & GRAPHIC DESIGN</h3>
+            </div>
+            <ul class="tool-tags-list">
+              <li><strong>Adobe Photoshop</strong> <span>High-End Visual Design, Image Editing & Mockups</span></li>
+              <li><strong>Adobe Illustrator</strong> <span>Vector Iconography, Logos & Brand Assets</span></li>
+              <li><strong>Adobe InDesign</strong> <span>Editorial Layouts & Digital Publications</span></li>
+            </ul>
+          </div>
+
+          <div class="tool-category-card">
+            <div class="tool-cat-header">
+              <span class="tool-cat-icon">✦</span>
+              <h3>MOTION & AUDIO/VIDEO</h3>
+            </div>
+            <ul class="tool-tags-list">
+              <li><strong>After Effects</strong> <span>Micro-Interactions, UI Animation & Motion Curves</span></li>
+              <li><strong>Premiere Pro</strong> <span>Cinematic Video Editing & Product Storytelling</span></li>
+            </ul>
+          </div>
+
+          <div class="tool-category-card">
+            <div class="tool-cat-header">
+              <span class="tool-cat-icon">✦</span>
+              <h3>CODE & MODERN WORKFLOW</h3>
+            </div>
+            <ul class="tool-tags-list">
+              <li><strong>HTML & CSS</strong> <span>Semantic Markup, Flexbox, CSS Grid & Responsive Design</span></li>
+              <li><strong>Bootstrap</strong> <span>Rapid Component Prototyping & Grid Systems</span></li>
+              <li><strong>ChatGPT / Claude</strong> <span>Research Synthesis, User Persona Ideation & Copywriting</span></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         EDUCATION SECTION: TIMELINE FROM RESUME
+         ======================================================== -->
+    <section id="education" class="section education-section" aria-labelledby="eduHeading">
+      <div class="section-container">
+
+        <div class="section-badge-header reveal">
+          <span class="section-index">06</span>
+          <span class="section-tag">ACADEMIC & PROFESSIONAL BACKGROUND</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="education-intro reveal">
+          <span class="eyebrow-accent">VERIFIED CREDENTIALS</span>
+          <h2 class="section-display-title" id="eduHeading">
+            EDUCATION <span class="gradient-text">TIMELINE.</span>
+          </h2>
+          <p class="edu-sub">Academic foundation and specialized professional training in graphics, web design, multimedia, and computer applications.</p>
+        </div>
+
+        <!-- Cinematic Vertical Timeline -->
+        <div class="education-timeline reveal">
+
+          <!-- Item 1: MAAC -->
+          <div class="timeline-entry">
+            <div class="entry-marker">
+              <div class="marker-dot"></div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="entry-card">
+              <div class="entry-meta">
+                <span class="entry-years">2025 – 2026</span>
+                <span class="entry-badge active-badge">CURRENT DIPLOMA</span>
+              </div>
+              <h3 class="entry-degree">Diploma in Graphics, Web Designing, and 2D Animation</h3>
+              <p class="entry-institution">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Maya Academy of Advanced Creativity (MAAC)
+              </p>
+              <p class="entry-location">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Gorakhpur, Uttar Pradesh
+              </p>
+              <p class="entry-desc">Advanced specialization in user interface design, digital web layouts, vector illustration, motion design principles, and multimedia storytelling.</p>
+            </div>
+          </div>
+
+          <!-- Item 2: ADCA -->
+          <div class="timeline-entry">
+            <div class="entry-marker">
+              <div class="marker-dot"></div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="entry-card">
+              <div class="entry-meta">
+                <span class="entry-years">2023 – 2024</span>
+                <span class="entry-badge">COMPLETED</span>
+              </div>
+              <h3 class="entry-degree">Advanced Diploma in Computer Application (ADCA)</h3>
+              <p class="entry-institution">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                R Cloud Software
+              </p>
+              <p class="entry-location">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Bhingari Bazar, Deoria (U.P)
+              </p>
+              <p class="entry-desc">In-depth training in computer applications, system workflows, digital design fundamentals, and software productivity tools.</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Intermediate UP Board -->
+          <div class="timeline-entry">
+            <div class="entry-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="entry-card">
+              <div class="entry-meta">
+                <span class="entry-years">2021 – 2022</span>
+                <span class="entry-badge">COMPLETED</span>
+              </div>
+              <h3 class="entry-degree">Intermediate With Science (UP BOARD)</h3>
+              <p class="entry-institution">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Baba Raghav Das Krishak Inter College
+              </p>
+              <p class="entry-location">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Bhatpar Rani, Deoria (U.P)
+              </p>
+              <p class="entry-desc">Strong foundation in science, analytical thinking, logic, and structured problem-solving principles.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         RESUME SECTION: PREVIEW + ACTUAL PDF DOWNLOAD
+         ======================================================== -->
+    <section id="resume" class="section resume-section" aria-labelledby="resumeHeading">
+      <div class="section-container">
+
+        <div class="section-badge-header reveal">
+          <span class="section-index">07</span>
+          <span class="section-tag">CURRICULUM VITAE</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="resume-cinematic-card reveal">
+          <div class="resume-ambient-glow"></div>
+          
+          <div class="resume-content-left">
+            <span class="eyebrow-accent">THE RESUME</span>
+            <h2 class="resume-title" id="resumeHeading">
+              THE DESIGNER BEHIND <span class="gradient-text">THE WORK.</span>
+            </h2>
+            <p class="resume-summary-text">
+              Download or view my complete, verified curriculum vitae detailing my design competencies, education, tools, and project history.
+            </p>
+
+            <div class="resume-details-list">
+              <div class="res-detail-item">
+                <span class="res-label">CANDIDATE</span>
+                <span class="res-val">Ajit Kumar Singh</span>
+              </div>
+              <div class="res-detail-item">
+                <span class="res-label">ROLES</span>
+                <span class="res-val">UI UX Designer · Product Designer · Visual Designer</span>
+              </div>
+              <div class="res-detail-item">
+                <span class="res-label">LOCATION</span>
+                <span class="res-val">Deoria, Uttar Pradesh</span>
+              </div>
+              <div class="res-detail-item">
+                <span class="res-label">DOCUMENT</span>
+                <span class="res-val">PDF Format (Direct Download Verified)</span>
+              </div>
+            </div>
+
+            <div class="resume-actions-group">
+              <a class="primary-btn pulse-on-hover" href="assets/Ajit-Kumar-Singh-Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <span>VIEW RESUME</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+
+              <a class="secondary-btn" href="assets/Ajit-Kumar-Singh-Resume.pdf" download="Ajit-Kumar-Singh-Resume.pdf">
+                <span>DOWNLOAD PDF</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Stylized Resume Document Card Preview -->
+          <div class="resume-preview-right">
+            <div class="doc-mockup-frame">
+              <div class="doc-top-bar">
+                <div class="doc-dots"><span></span><span></span><span></span></div>
+                <span class="doc-filename">Ajit-Kumar-Singh-Resume.pdf</span>
+                <span class="doc-badge">PDF</span>
+              </div>
+              <div class="doc-body-preview">
+                <div class="doc-header-block">
+                  <h4>AJIT KUMAR SINGH</h4>
+                  <p class="doc-sub">UI UX DESIGNER · PRODUCT DESIGNER · VISUAL DESIGNER</p>
+                  <p class="doc-contact-line">+91-7379234283 · ajit38323@gmail.com · Deoria, UP</p>
+                </div>
+                <div class="doc-divider"></div>
+                <div class="doc-section-block">
+                  <h5>SUMMARY</h5>
+                  <p>Aspiring UI/UX Designer with a strong passion for creating clean, intuitive, and user-friendly digital experiences. Skilled in user-centered design, wireframing, prototyping, visual design, and design thinking...</p>
+                </div>
+                <div class="doc-section-block">
+                  <h5>CORE COMPETENCIES</h5>
+                  <div class="doc-mini-tags">
+                    <span>UX Strategy</span><span>User Research</span><span>Interaction Design</span><span>Information Architecture</span><span>Wireframing</span><span>Prototyping</span>
+                  </div>
+                </div>
+                <div class="doc-action-overlay">
+                  <a class="doc-click-btn" href="assets/Ajit-Kumar-Singh-Resume.pdf" target="_blank">OPEN DOCUMENT ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         CONTACT SECTION & FINAL CTA
+         ======================================================== -->
+    <section id="contact" class="section contact-section" aria-labelledby="contactHeading">
+      <div class="section-container">
+
+        <div class="section-badge-header reveal">
+          <span class="section-index">08</span>
+          <span class="section-tag">GET IN TOUCH</span>
+          <span class="section-line"></span>
+        </div>
+
+        <div class="contact-cinematic-wrapper">
+          
+          <div class="contact-header reveal">
+            <span class="eyebrow-accent">INITIATE COLLABORATION</span>
+            <h2 class="contact-display-title" id="contactHeading">
+              LET'S DESIGN<br>
+              <span class="gradient-text">BETTER</span><br>
+              EXPERIENCES.
+            </h2>
+            <p class="contact-subheading">
+              Have an idea, project, or full-time opportunity? Let's talk.
+            </p>
+          </div>
+
+          <!-- Verified Contact Details Grid with One-Click Copy -->
+          <div class="contact-cards-grid reveal">
+
+            <!-- Card 1: Email -->
+            <div class="contact-touch-card">
+              <div class="touch-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="touch-info">
+                <span class="touch-label">EMAIL ADDRESS</span>
+                <a class="touch-val" href="mailto:ajit38323@gmail.com">ajit38323@gmail.com</a>
+              </div>
+              <button class="copy-btn" type="button" data-copy="ajit38323@gmail.com" aria-label="Copy email address" title="Copy email">
+                <svg class="copy-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span class="copy-status">COPY</span>
+              </button>
+            </div>
+
+            <!-- Card 2: Phone -->
+            <div class="contact-touch-card">
+              <div class="touch-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="touch-info">
+                <span class="touch-label">DIRECT PHONE</span>
+                <a class="touch-val" href="tel:+917379234283">+91 7379234283</a>
+              </div>
+              <button class="copy-btn" type="button" data-copy="+917379234283" aria-label="Copy phone number" title="Copy phone">
+                <svg class="copy-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span class="copy-status">COPY</span>
+              </button>
+            </div>
+
+            <!-- Card 3: Location -->
+            <div class="contact-touch-card">
+              <div class="touch-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="touch-info">
+                <span class="touch-label">LOCATION</span>
+                <span class="touch-val static-val">Deoria, Uttar Pradesh, India</span>
+              </div>
+              <div class="location-status-badge">
+                <span class="pulse-dot"></span> OPEN TO RELOCATION & REMOTE
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Message Box -->
+          <div class="quick-inquiry-box reveal">
+            <h3 class="inquiry-title">SEND A DIRECT MESSAGE</h3>
+            <form id="contactForm" class="contact-form" action="mailto:ajit38323@gmail.com" method="get" enctype="text/plain">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="senderName">YOUR NAME</label>
+                  <input type="text" id="senderName" name="subject" placeholder="e.g. Sarah Connor" required>
+                </div>
+                <div class="form-group">
+                  <label for="senderSubject">PROJECT / INQUIRY TOPIC</label>
+                  <input type="text" id="senderSubject" placeholder="e.g. UI/UX Collaboration / Job Role">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="senderBody">MESSAGE</label>
+                <textarea id="senderBody" name="body" rows="4" placeholder="Hello Ajit, I came across your portfolio and would love to discuss a project..." required></textarea>
+              </div>
+              <button class="primary-btn submit-msg-btn" type="submit">
+                <span>COMPOSE EMAIL</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+          </div>
+
+          <!-- FINAL CALL TO ACTION BANNER -->
+          <div class="final-cta-banner reveal">
+            <div class="cta-banner-glow"></div>
+            <span class="cta-kicker">READY TO CREATE SOMETHING MEANINGFUL?</span>
+            <h3 class="cta-banner-heading">LET'S WORK TOGETHER.</h3>
+            <a class="primary-btn big-btn" href="mailto:ajit38323@gmail.com">
+              <span>LET'S TALK</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <div class="cta-designer-sign">
+              <strong>AJIT KUMAR SINGH</strong>
+              <span>UI UX DESIGNER · PRODUCT DESIGNER · VISUAL DESIGNER</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-left">
+            <span class="footer-brand">AJIT KUMAR SINGH</span>
+            <span class="footer-roles">UI/UX DESIGNER</span>
+          </div>
+          <div class="footer-center">
+            <span class="hud-mono">LOCAL TIME: DEORIA (IST +5:30) <span id="localClock">--:--:--</span></span>
+          </div>
+          <div class="footer-right">
+            <span>© 2026 AJIT KUMAR SINGH · ALL RIGHTS RESERVED</span>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       CINEMATIC CASE STUDY MODAL EXPERIENCE
+       ======================================================== -->
+  <div class="case-study-modal" id="caseStudyModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-container">
+      
+      <!-- Modal Header Bar -->
+      <div class="modal-top-bar">
+        <div class="modal-project-tag" id="modalProjectKicker">PROJECT 01 // SAVOR</div>
+        <div class="modal-nav-actions">
+          <button class="modal-zoom-btn" id="modalZoomTrigger" title="Toggle Fullscreen Zoom">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            <span>FULLSCREEN MOCKUP</span>
+          </button>
+          <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close case study (Escape)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body Content -->
+      <div class="modal-scrollable-body" id="modalScrollBody">
+        
+        <!-- Case Study Hero Title Block -->
+        <div class="case-study-hero-block">
+          <span class="cs-category-badge" id="modalCategoryBadge">RECIPE DISCOVERY APP</span>
+          <h2 class="cs-title" id="modalProjectTitle">SAVOR</h2>
+          <p class="cs-tagline gradient-text" id="modalProjectTagline">FRIDGE-FIRST MEAL DISCOVERY</p>
+          <p class="cs-intro-lead" id="modalProjectDesc"></p>
+        </div>
+
+        <!-- Case Study Visual Mockup Display (Never stretched or distorted) -->
+        <div class="cs-hero-mockup-wrap">
+          <div class="cs-mockup-frame" id="csMockupFrame">
+            <img class="cs-hero-image" id="modalProjectImage" src="" alt="Project mockup showcase" loading="eager">
+            <div class="mockup-hint">CLICK IMAGE OR FULLSCREEN BUTTON TO ZOOM PREVIEW</div>
+          </div>
+        </div>
+
+        <!-- Case Study Navigation Tabs -->
+        <div class="cs-tabs-bar" role="tablist">
+          <button class="cs-tab active" role="tab" aria-selected="true" data-tab="tab-overview">01 OVERVIEW</button>
+          <button class="cs-tab" role="tab" aria-selected="false" data-tab="tab-problem">02 THE PROBLEM</button>
+          <button class="cs-tab" role="tab" aria-selected="false" data-tab="tab-solution">03 APPROACH & UX</button>
+          <button class="cs-tab" role="tab" aria-selected="false" data-tab="tab-architecture">04 IA & FLOWS</button>
+          <button class="cs-tab" role="tab" aria-selected="false" data-tab="tab-design">05 UI & PROTOTYPE</button>
+          <button class="cs-tab" role="tab" aria-selected="false" data-tab="tab-learnings">06 KEY LEARNINGS</button>
+        </div>
+
+        <!-- Case Study Tab Panels -->
+        <div class="cs-tab-panels" id="modalTabPanels">
+          
+          <!-- Tab 1: Overview -->
+          <div class="cs-panel active" id="tab-overview">
+            <div class="cs-meta-grid" id="modalMetaGrid">
+              <!-- Injected by script.js -->
+            </div>
+            <div class="cs-section-body" id="modalOverviewBody">
+              <!-- Injected by script.js -->
+            </div>
+          </div>
+
+          <!-- Tab 2: The Problem -->
+          <div class="cs-panel" id="tab-problem">
+            <div class="cs-section-body" id="modalProblemBody">
+              <!-- Injected by script.js -->
+            </div>
+          </div>
+
+          <!-- Tab 3: Approach & UX -->
+          <div class="cs-panel" id="tab-solution">
+            <div class="cs-section-body" id="modalSolutionBody">
+              <!-- Injected by script.js -->
+            </div>
+          </div>
+
+          <!-- Tab 4: IA & User Flows -->
+          <div class="cs-panel" id="tab-architecture">
+            <div class="cs-section-body" id="modalArchitectureBody">
+              <!-- Injected by script.js -->
+            </div>
+          </div>
+
+          <!-- Tab 5: UI & Prototype -->
+          <div class="cs-panel" id="tab-design">
+            <div class="cs-section-body" id="modalDesignBody">
+              <!-- Injected by script.js -->
+            </div>
+          </div>
+
+          <!-- Tab 6: Key Learnings -->
+          <div class="cs-panel" id="tab-learnings">
+            <div class="cs-section-body" id="modalLearningsBody">
+              <!-- Injected by script.js -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Case Study Modal Bottom Navigation -->
+        <div class="modal-project-switcher">
+          <button class="switch-proj-btn prev" id="modalPrevProject">
+            <span class="switch-arrow">←</span>
+            <span class="switch-col">
+              <span class="switch-small">PREVIOUS PROJECT</span>
+              <span class="switch-name" id="prevProjectName">DWELL</span>
+            </span>
+          </button>
+          <button class="switch-proj-btn next" id="modalNextProject">
+            <span class="switch-col">
+              <span class="switch-small">NEXT PROJECT</span>
+              <span class="switch-name" id="nextProjectName">PAYSPHERE</span>
+            </span>
+            <span class="switch-arrow">→</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX IMAGE ZOOM MODAL -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-label="Fullscreen Mockup Preview">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">✕</button>
+      <img id="lightboxImage" src="" alt="Fullscreen zoomed mockup">
+    </div>
+  </div>
+
+  <!-- Floating HUD Soundtrack Player (GTA 6 Theme · 70% Volume) -->
+  <div class="hud-soundtrack-player" id="hudSoundtrackPlayer">
+    <button class="soundtrack-toggle-btn" id="soundtrackToggleBtn" aria-label="Toggle GTA 6 Soundtrack" title="GTA 6 Official Main Theme (Volume 70%)">
+      <div class="soundtrack-visualizer">
+        <span class="bar b1"></span>
+        <span class="bar b2"></span>
+        <span class="bar b3"></span>
+        <span class="bar b4"></span>
+      </div>
+      <div class="soundtrack-meta">
+        <span class="soundtrack-badge"><span class="pulse-dot"></span> GTA VI SOUNDTRACK // 70% VOL</span>
+        <span class="soundtrack-title">OFFICIAL MAIN THEME</span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
