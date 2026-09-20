@@ -49,12 +49,13 @@
   }
 
   /* ==========================================================================
-     02. 5-STAGE HERO SCROLL STORYTELLING & VIDEO SCRUBBING
+     02. 5-STAGE HERO SCROLL STORYTELLING & MOBILE OPTIMIZATION
      ========================================================================== */
   const heroTrack = $('.hero-scroll-track');
   const heroVideo = $('#heroVideo');
   const heroProgressFill = $('#heroProgressFill');
   const stageNumber = $('#stageNumber');
+  const stageDots = $$('.stage-dot-btn');
   const stages = [
     $('#heroStage1'),
     $('#heroStage2'),
@@ -65,12 +66,62 @@
 
   let isTicking = false;
 
+  function setHeroStage(index, smoothScroll = false) {
+    if (index < 0) index = 0;
+    if (index >= stages.length) index = stages.length - 1;
+
+    // Update active stage
+    stages.forEach((stage, idx) => {
+      if (stage) {
+        if (idx === index) stage.classList.add('active');
+        else stage.classList.remove('active');
+      }
+    });
+
+    // Update Stage display number
+    if (stageNumber) {
+      stageNumber.textContent = `0${index + 1}`;
+    }
+
+    // Update active dot
+    stageDots.forEach((dot, idx) => {
+      if (idx === index) dot.classList.add('active');
+      else dot.classList.remove('active');
+    });
+
+    // Update scrub fill
+    if (heroProgressFill) {
+      heroProgressFill.style.width = `${Math.max(10, ((index + 1) / 5) * 100)}%`;
+    }
+
+    // Smooth scroll into hero track position if requested
+    if (smoothScroll && heroTrack) {
+      const trackHeight = heroTrack.offsetHeight - window.innerHeight;
+      if (trackHeight > 0) {
+        const targetY = heroTrack.offsetTop + (index / 4) * trackHeight;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+    }
+  }
+
+  // Bind click/tap on stage dots
+  stageDots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const stageIdx = parseInt(dot.getAttribute('data-stage'), 10);
+      if (!isNaN(stageIdx)) setHeroStage(stageIdx, true);
+    });
+  });
+
   function updateHeroScroll() {
     if (!heroTrack) return;
 
+    const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window);
     const trackRect = heroTrack.getBoundingClientRect();
     const trackHeight = heroTrack.offsetHeight - window.innerHeight;
     
+    if (trackHeight <= 0) return;
+
     // Calculate progress between 0 and 1
     let scrollFraction = -trackRect.top / trackHeight;
     scrollFraction = Math.max(0, Math.min(1, scrollFraction));
@@ -89,6 +140,12 @@
       stageNumber.textContent = `0${activeStageIndex + 1}`;
     }
 
+    // Update active dot in stage dots selector
+    stageDots.forEach((dot, idx) => {
+      if (idx === activeStageIndex) dot.classList.add('active');
+      else dot.classList.remove('active');
+    });
+
     // Toggle active class on stage elements
     stages.forEach((stage, idx) => {
       if (stage) {
@@ -100,17 +157,13 @@
       }
     });
 
-    // Smooth video scrubbing / playback sync
-    if (heroVideo && heroVideo.duration && !isNaN(heroVideo.duration)) {
-      // Sync video currentTime to scrub fraction with smooth dampening
+    // On mobile / touch devices: DO NOT scrub currentTime to prevent severe GPU/scroll lag!
+    // Video loops naturally and smoothly. Desktop with mouse wheel gets smooth scrubbing.
+    if (!isMobile && heroVideo && heroVideo.duration && !isNaN(heroVideo.duration)) {
       const targetTime = scrollFraction * heroVideo.duration;
       if (Math.abs(heroVideo.currentTime - targetTime) > 0.3) {
         heroVideo.currentTime = targetTime;
       }
-    }
-
-    // Slight scale effect on video as user scrubs through
-    if (heroVideo) {
       const scale = 1.05 + scrollFraction * 0.08;
       heroVideo.style.transform = `scale(${scale})`;
     }
@@ -124,6 +177,42 @@
       isTicking = true;
     }
   }, { passive: true });
+
+  // Touch swipe support on hero stage for mobile
+  const heroStageEl = $('.hero-sticky-stage');
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  if (heroStageEl) {
+    heroStageEl.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches[0]) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    heroStageEl.addEventListener('touchend', (e) => {
+      if (!e.changedTouches || !e.changedTouches[0]) return;
+      const deltaX = e.changedTouches[0].clientX - touchStartX;
+      const deltaY = e.changedTouches[0].clientY - touchStartY;
+
+      // Horizontal swipe to cycle stages on mobile
+      if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        let currentIdx = 0;
+        stages.forEach((st, idx) => {
+          if (st && st.classList.contains('active')) currentIdx = idx;
+        });
+
+        if (deltaX < 0 && currentIdx < 4) {
+          // Swipe left -> Next stage
+          setHeroStage(currentIdx + 1, true);
+        } else if (deltaX > 0 && currentIdx > 0) {
+          // Swipe right -> Previous stage
+          setHeroStage(currentIdx - 1, true);
+        }
+      }
+    }, { passive: true });
+  }
 
   /* ==========================================================================
      03. NAVBAR SCROLL EFFECT & SCROLL-SPY
@@ -204,6 +293,11 @@
 
   if (drawerBackdrop) {
     drawerBackdrop.addEventListener('click', closeDrawer);
+  }
+
+  const drawerCloseBtn = $('#drawerCloseBtn');
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', closeDrawer);
   }
 
   mobileLinks.forEach(link => {

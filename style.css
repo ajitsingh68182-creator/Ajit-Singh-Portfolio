@@ -77,15 +77,23 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  overflow-y: visible;
+  max-width: 100%;
+  width: 100%;
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--bg-deep);
   color: var(--text-primary);
-  overflow-x: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
+  max-width: 100%;
+  width: 100%;
   line-height: 1.6;
   min-height: 100vh;
+  position: relative;
 }
 
 body.is-loading {
@@ -267,10 +275,10 @@ ul, ol {
 
 .section-display-title {
   font-family: var(--font-display);
-  font-size: clamp(38px, 5.5vw, 76px);
+  font-size: clamp(28px, 3.8vw, 52px);
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
   color: var(--text-pure);
   text-transform: uppercase;
 }
@@ -373,10 +381,10 @@ ul, ol {
 
 .loader-title {
   font-family: var(--font-display);
-  font-size: clamp(40px, 7vw, 76px);
+  font-size: clamp(30px, 4.5vw, 54px);
   font-weight: 800;
-  line-height: 0.88;
-  letter-spacing: -0.05em;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
   color: var(--text-pure);
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -840,20 +848,24 @@ ul, ol {
    -------------------------------------------------------------------------- */
 .hero-scroll-track {
   position: relative;
-  height: 480vh; /* Scroll track driving stages 01 through 05 */
+  height: 320vh; /* Smooth, rock-solid pinned scroll track through stages 01 to 05 */
   background-color: var(--bg-deep);
 }
 
 .hero-sticky-stage {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
+  left: 0;
+  width: 100%;
   height: 100vh;
   height: 100svh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 90px 5vw 40px;
+  padding: 80px 5vw 16px;
+  z-index: 5;
 }
 
 .hero-media-wrapper {
@@ -965,13 +977,13 @@ ul, ol {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(44px, 7.5vw, 110px);
+  font-size: clamp(34px, 5.2vw, 76px);
   font-weight: 800;
-  line-height: 0.88;
-  letter-spacing: -0.055em;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
   color: var(--text-pure);
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .block-span {
@@ -1056,7 +1068,7 @@ ul, ol {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 30px;
-  padding-top: 20px;
+  padding-top: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -1193,7 +1205,22 @@ ul, ol {
    09. ABOUT SECTION: WHO IS AJIT?
    -------------------------------------------------------------------------- */
 .about-section {
+  padding-top: 0px !important;
+  padding-bottom: 80px;
   background: radial-gradient(circle at 10% 40%, rgba(255, 42, 133, 0.06) 0%, transparent 60%);
+  scroll-margin-top: 60px;
+}
+
+.about-section .section-badge-header {
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+/* Ensure portrait card is immediately visible with zero empty gap delay */
+.portrait-column,
+.about-section .section-badge-header {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .about-cinematic-grid {
@@ -1224,9 +1251,9 @@ ul, ol {
 .portrait-frame {
   position: relative;
   z-index: 2;
-  min-height: 580px;
+  min-height: 420px;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
   background: linear-gradient(180deg, rgba(14, 11, 22, 0.4) 0%, rgba(6, 5, 10, 0.95) 100%);
 }
@@ -1234,9 +1261,9 @@ ul, ol {
 .portrait-image {
   width: 100%;
   height: 100%;
-  max-height: 560px;
+  max-height: 460px;
   object-fit: contain;
-  object-position: bottom center;
+  object-position: top center;
   filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.85));
   transition: transform 0.6s var(--ease-cinematic);
 }
@@ -1308,13 +1335,13 @@ ul, ol {
 
 .about-title {
   font-family: var(--font-display);
-  font-size: clamp(42px, 5.5vw, 76px);
+  font-size: clamp(30px, 4.2vw, 54px);
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
   color: var(--text-pure);
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .about-roles-banner {
@@ -1533,10 +1560,10 @@ ul, ol {
 
 .project-title {
   font-family: var(--font-display);
-  font-size: clamp(48px, 6vw, 84px);
+  font-size: clamp(34px, 4.5vw, 58px);
   font-weight: 800;
-  line-height: 0.88;
-  letter-spacing: -0.05em;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
   color: var(--text-pure);
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -1699,9 +1726,9 @@ ul, ol {
 
 .step-name {
   font-family: var(--font-display);
-  font-size: clamp(24px, 3.5vw, 42px);
+  font-size: clamp(18px, 2.4vw, 28px);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--text-pure);
   text-transform: uppercase;
   margin-bottom: 6px;
@@ -1759,7 +1786,7 @@ ul, ol {
   gap: 36px;
   white-space: nowrap;
   font-family: var(--font-display);
-  font-size: clamp(28px, 4vw, 54px);
+  font-size: clamp(22px, 3vw, 40px);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: rgba(255, 255, 255, 0.18);
@@ -1938,11 +1965,11 @@ ul, ol {
 
 .entry-degree {
   font-family: var(--font-display);
-  font-size: clamp(20px, 2.5vw, 28px);
+  font-size: clamp(17px, 2vw, 23px);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-pure);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .entry-institution {
@@ -2004,13 +2031,13 @@ ul, ol {
 
 .resume-title {
   font-family: var(--font-display);
-  font-size: clamp(36px, 4.5vw, 64px);
+  font-size: clamp(26px, 3.5vw, 44px);
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
   color: var(--text-pure);
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .resume-summary-text {
@@ -2220,13 +2247,13 @@ ul, ol {
 
 .contact-display-title {
   font-family: var(--font-display);
-  font-size: clamp(48px, 8vw, 120px);
+  font-size: clamp(36px, 5.5vw, 78px);
   font-weight: 800;
-  line-height: 0.88;
-  letter-spacing: -0.06em;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
   color: var(--text-pure);
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .contact-subheading {
@@ -2421,11 +2448,11 @@ ul, ol {
 
 .cta-banner-heading {
   font-family: var(--font-display);
-  font-size: clamp(38px, 6vw, 84px);
+  font-size: clamp(26px, 4vw, 52px);
   font-weight: 800;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
   color: var(--text-pure);
-  margin-bottom: 36px;
+  margin-bottom: 30px;
   text-transform: uppercase;
 }
 
@@ -2610,10 +2637,10 @@ ul, ol {
 
 .cs-title {
   font-family: var(--font-display);
-  font-size: clamp(48px, 7vw, 96px);
+  font-size: clamp(32px, 4.8vw, 62px);
   font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
   color: var(--text-pure);
   text-transform: uppercase;
   margin-bottom: 14px;
@@ -2926,16 +2953,25 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   18. RESPONSIVE BREAKPOINTS (1440, 1200, 992, 768, 576, 375)
+   18. EXHAUSTIVE MOBILE & RESPONSIVE BREAKPOINTS (1200, 992, 768, 480, 360)
    -------------------------------------------------------------------------- */
+
+/* Touch screens: Disable custom cursor */
+@media (hover: none) or (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* Tablet Landscape & Small Laptops (<= 1200px) */
 @media (max-width: 1200px) {
   .about-cinematic-grid {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 40px;
   }
 
   .portrait-frame {
-    min-height: 480px;
+    min-height: 440px;
   }
 
   .project-card-grid {
@@ -2943,7 +2979,7 @@ ul, ol {
   }
 
   .project-card-visual {
-    min-height: 400px;
+    min-height: 360px;
   }
 
   .contact-cards-grid {
@@ -2952,10 +2988,11 @@ ul, ol {
 
   .resume-cinematic-card {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
   }
 }
 
+/* Tablet Portrait & Large Phones (<= 992px) */
 @media (max-width: 992px) {
   .nav-links, .nav-cta-btn {
     display: none;
@@ -2970,8 +3007,8 @@ ul, ol {
   }
 
   .process-step-item {
-    grid-template-columns: 60px 1fr;
-    gap: 16px;
+    grid-template-columns: 50px 1fr;
+    gap: 14px;
   }
 
   .step-output-tag {
@@ -2988,94 +3025,824 @@ ul, ol {
   }
 
   .modal-scrollable-body {
-    padding: 35px 30px;
+    padding: 30px 24px;
   }
 }
 
+/* Standard Mobile Devices (<= 768px) */
 @media (max-width: 768px) {
-  .section {
-    padding: 90px 5vw;
+  /* Prevent any horizontal stretch */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Compact Fixed Navbar */
+  .navbar {
+    top: 10px;
+    padding: 0 12px;
+    width: 100%;
+  }
+
+  .navbar-container {
+    height: 54px;
+    padding: 0 14px;
+  }
+
+  .brand-monogram {
+    font-size: 18px;
+  }
+
+  .audio-toggle {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .audio-wave-bars {
+    display: none;
+  }
+
+  .mobile-toggle {
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  /* Mobile Navigation Drawer */
+  .mobile-drawer-content {
+    width: min(340px, 86vw);
+    padding: 24px 18px;
+  }
+
+  .mobile-hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-drawer-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-pure);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .mobile-links {
+    margin: 24px 0;
+    gap: 12px;
+  }
+
+  .mobile-link {
+    font-size: 18px;
+    gap: 12px;
+  }
+
+  .mobile-link span {
+    font-size: 20px;
+  }
+
+  /* Hero Section Mobile Optimization */
+  .hero-scroll-track {
+    height: 240vh !important; /* Stays securely fixed while scrolling through stages 01 to 05 */
   }
 
   .hero-sticky-stage {
-    padding: 80px 5vw 30px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 64px 16px 10px;
+    height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    z-index: 5;
   }
 
   .hero-hud-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    width: 100%;
+  }
+
+  .hud-badge {
+    font-size: 9px;
+    padding: 3px 8px;
+    letter-spacing: 0.06em;
+  }
+
+  /* Narrative container fits perfectly inside screen */
+  .hero-narrative-container {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .story-stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: flex-start;
-    gap: 8px;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  .stage-tag {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    margin-bottom: 6px;
+  }
+
+  .hero-title {
+    font-size: clamp(24px, 6.5vw, 36px);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    margin-bottom: 8px;
+  }
+
+  .hero-designation {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+    max-width: 100%;
   }
 
   .hero-action-row {
-    flex-direction: column;
-    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
   }
 
   .hero-primary-btn, .hero-secondary-btn {
+    flex: 1;
+    padding: 11px 12px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
     justify-content: center;
-  }
-
-  .project-card-meta {
-    padding: 36px 24px;
-  }
-
-  .project-card-visual {
-    padding: 24px;
-    min-height: 320px;
-  }
-
-  .contact-cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-form .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .quick-inquiry-box {
-    padding: 30px 20px;
-  }
-
-  .final-cta-banner {
-    padding: 50px 24px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    gap: 14px;
     text-align: center;
-  }
-
-  .modal-container {
-    inset: 0;
-    border-radius: 0;
-  }
-
-  .modal-project-switcher {
-    flex-direction: column;
-  }
-
-  .switch-proj-btn {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 13vw;
-  }
-
-  .section-display-title {
-    font-size: 11vw;
+    white-space: nowrap;
+    gap: 6px;
   }
 
   .hero-hud-footer {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .stage-indicator-pill {
+    font-size: 10px;
+  }
+
+  .stage-pills-selector {
+    display: flex;
+    gap: 3px;
+  }
+
+  .stage-dot-btn {
+    padding: 3px 6px;
+    font-size: 9px;
   }
 
   .scroll-prompt {
     display: none;
+  }
+
+  /* Common Sections Padding */
+  .section {
+    padding: 60px 16px;
+  }
+
+  .section-badge-header {
+    margin-bottom: 30px;
+    gap: 12px;
+  }
+
+  .section-display-title {
+    font-size: clamp(22px, 5.5vw, 32px);
+  }
+
+  /* About Section Mobile */
+  .about-section {
+    padding-top: 0px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .about-section .section-badge-header {
+    margin-top: 6px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .about-cinematic-grid {
+    gap: 18px;
+  }
+
+  .portrait-frame {
+    min-height: 240px;
+    max-height: 300px;
+    align-items: flex-start;
+  }
+
+  .portrait-image {
+    max-height: 280px;
+    object-position: top center;
+  }
+
+  .portrait-hud-overlay {
+    padding: 14px 12px;
+  }
+
+  .about-title {
+    font-size: clamp(24px, 6vw, 34px);
+  }
+
+  .about-roles-banner {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .role-badge {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  .lead-quote {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .body-text {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .about-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .about-actions .primary-btn, .about-actions .ghost-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 11px;
+    padding: 12px 18px;
+  }
+
+  .skills-cluster-box {
+    padding: 18px 12px;
+    border-radius: var(--radius-md);
+  }
+
+  .competencies-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .competency-card {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .comp-info h4 {
+    font-size: 12px;
+  }
+
+  .comp-info p {
+    font-size: 11px;
+  }
+
+  /* Projects Stack Mobile */
+  .work-section-intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .work-description {
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .projects-stack {
+    gap: 20px;
+  }
+
+  .project-cinematic-card {
+    border-radius: var(--radius-md);
+  }
+
+  .project-card-meta {
+    padding: 20px 14px;
+  }
+
+  .project-title {
+    font-size: clamp(24px, 6vw, 34px);
+    margin-bottom: 6px;
+  }
+
+  .project-tagline {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .project-brief {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .project-chips {
+    gap: 5px;
+    margin-bottom: 16px;
+  }
+
+  .chip {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+
+  .case-study-trigger {
+    width: 100%;
+    justify-content: center;
+    padding: 11px;
+    font-size: 11px;
+  }
+
+  .project-card-visual {
+    padding: 12px;
+    min-height: 180px;
+    max-height: 250px;
+  }
+
+  .visual-aspect-wrapper img {
+    max-height: 230px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  /* Process Steps Mobile */
+  .process-header {
+    margin-bottom: 30px;
+  }
+
+  .process-sub {
+    font-size: 13px;
+  }
+
+  .process-step-item {
+    grid-template-columns: 32px 1fr;
+    gap: 6px 10px;
+    padding: 14px 6px;
+  }
+
+  .step-num {
+    font-size: 11px;
+  }
+
+  .step-name {
+    font-size: 18px;
+  }
+
+  .step-desc {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .step-details {
+    grid-column: 1 / -1;
+    margin-top: 2px;
+  }
+
+  .step-output-tag {
+    text-align: left;
+    font-size: 9px;
+  }
+
+  /* Tools Mobile */
+  .tools-intro {
+    margin-bottom: 24px;
+  }
+
+  .tools-sub {
+    font-size: 13px;
+  }
+
+  .tool-marquee-container {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+    padding: 12px 0;
+    margin-bottom: 24px;
+  }
+
+  .tool-marquee-track {
+    font-size: 18px;
+    gap: 14px;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tool-category-card {
+    padding: 16px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  /* Education Mobile */
+  .education-intro {
+    margin-bottom: 30px;
+  }
+
+  .edu-sub {
+    font-size: 13px;
+  }
+
+  .education-timeline {
+    padding-left: 20px;
+  }
+
+  .education-timeline::before {
+    left: 4px;
+  }
+
+  .entry-marker {
+    left: -20px;
+    top: 4px;
+  }
+
+  .marker-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .entry-card {
+    padding: 16px 12px;
+    margin-bottom: 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .entry-degree {
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .entry-institution {
+    font-size: 12px;
+  }
+
+  .entry-location {
+    font-size: 11px;
+  }
+
+  .entry-desc {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  /* Resume Section Mobile */
+  .resume-cinematic-card {
+    padding: 20px 14px;
+    gap: 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .resume-title {
+    font-size: clamp(20px, 5.5vw, 28px);
+  }
+
+  .resume-summary-text {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .resume-details-list {
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 12px 0;
+  }
+
+  .res-detail-item {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .res-label {
+    font-size: 9px;
+  }
+
+  .res-val {
+    font-size: 12px;
+  }
+
+  .resume-actions-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .resume-actions-group .primary-btn, .resume-actions-group .secondary-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 11px;
+    padding: 12px;
+  }
+
+  .doc-body-preview {
+    padding: 14px 12px;
+  }
+
+  /* Contact Section Mobile */
+  .contact-header {
+    margin-bottom: 30px;
+  }
+
+  .contact-display-title {
+    font-size: clamp(24px, 6.5vw, 36px);
+    margin-bottom: 12px;
+  }
+
+  .contact-subheading {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .contact-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .contact-touch-card {
+    padding: 16px 12px;
+    min-height: auto;
+    border-radius: var(--radius-md);
+  }
+
+  .touch-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+  }
+
+  .touch-val {
+    font-size: 13px;
+    word-break: break-all;
+  }
+
+  /* Copy button does not overlap text on mobile */
+  .copy-btn {
+    position: static;
+    margin-top: 10px;
+    align-self: flex-start;
+    padding: 4px 8px;
+    font-size: 9px;
+  }
+
+  .quick-inquiry-box {
+    padding: 18px 12px;
+    margin-bottom: 28px;
+    border-radius: var(--radius-md);
+  }
+
+  .contact-form .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-group {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .form-group input, .form-group textarea {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .final-cta-banner {
+    padding: 30px 14px;
+    margin-bottom: 30px;
+    border-radius: var(--radius-md);
+  }
+
+  .cta-banner-heading {
+    font-size: clamp(20px, 5.5vw, 30px);
+    margin-bottom: 16px;
+  }
+
+  .big-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 12px;
+    padding: 14px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  /* Case Study Modal Mobile */
+  .modal-container {
+    inset: 0;
+    border-radius: 0;
+    border: none;
+  }
+
+  .modal-top-bar {
+    padding: 10px 12px;
+  }
+
+  .modal-project-tag {
+    font-size: 9px;
+    max-width: 48%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .modal-zoom-btn span {
+    display: none;
+  }
+
+  .modal-zoom-btn {
+    padding: 6px;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+  }
+
+  .modal-close-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal-scrollable-body {
+    padding: 16px 12px 50px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cs-title {
+    font-size: clamp(22px, 6vw, 32px);
+  }
+
+  .cs-tagline {
+    font-size: 12px;
+  }
+
+  .cs-intro-lead {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .cs-hero-mockup-wrap {
+    margin-bottom: 18px;
+  }
+
+  .cs-mockup-frame {
+    padding: 8px;
+    border-radius: var(--radius-sm);
+  }
+
+  .cs-tabs-bar {
+    gap: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cs-tab {
+    flex-shrink: 0;
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+
+  .cs-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .cs-section-body {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .cs-section-body h3 {
+    font-size: 17px;
+    margin: 16px 0 8px;
+  }
+
+  .modal-project-switcher {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 30px;
+    padding-top: 16px;
+  }
+
+  .switch-proj-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  /* Lightbox Mobile */
+  .lightbox-modal {
+    padding: 16px;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  /* Floating Soundtrack Player on Mobile */
+  .hud-soundtrack-player {
+    bottom: 12px;
+    left: auto;
+    right: 12px;
+    z-index: 95;
+  }
+
+  .soundtrack-toggle-btn {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .soundtrack-meta {
+    display: none;
+  }
+}
+
+/* Extra Small Mobile Devices (<= 380px) */
+@media (max-width: 380px) {
+  .brand-role {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: clamp(20px, 7vw, 28px);
+  }
+
+  .hero-action-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .hero-primary-btn, .hero-secondary-btn {
+    width: 100%;
   }
 }
 
